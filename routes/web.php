@@ -12,7 +12,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Http\Controllers\CustomerController;
+use App\Http\Controllers\EmployeeController;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::post('/api/customer/add', [CustomerController::class, 'store']);
+Route::post('/api/employee/add', [EmployeeController::class, 'store']);
+
