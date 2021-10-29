@@ -9,6 +9,15 @@ use Illuminate\Http\Request;
 class CustomerController extends Controller
 {
     //
+    public function index(){
+        $customer = Customer::select('id','name','phone')
+        ->orderBy('name','asc')
+        ->get();
+        return [
+            'cus'=>$customer
+        ];
+    }
+    
     public function store(Request $request){
         $customer = new Customer();
         $customer->name = $request->name;

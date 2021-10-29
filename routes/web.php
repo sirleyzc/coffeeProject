@@ -19,6 +19,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//Routes Customer
 Route::post('/api/customer/add', [CustomerController::class, 'store']);
+Route::get('/api/customer', [CustomerController::class, 'index']);
+
+//Routes Employee
 Route::post('/api/employee/add', [EmployeeController::class, 'store']);
+Route::get('/api/employee', [EmployeeController::class, 'index']);
 

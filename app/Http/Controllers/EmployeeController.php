@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 class EmployeeController extends Controller
 {
     //
+    public function index(){
+        $employee = Employee::all();
+        return [
+            'emp'=>$employee
+        ];
+    }
+
     public function store(Request $request){
         $employee = new Employee();
         $employee->idEmployee = $request->id;
