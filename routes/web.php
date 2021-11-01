@@ -20,10 +20,14 @@ Route::get('/', function () {
 });
 
 //Routes Customer
-Route::post('/api/customer/add', [CustomerController::class, 'store']);
 Route::get('/api/customer', [CustomerController::class, 'index']);
+Route::post('/api/customer/add', [CustomerController::class, 'store']);
+Route::put('/api/customer/update', [CustomerController::class, 'update']);
+Route::post('/api/customer/delete', [CustomerController::class, 'destroy']);
 
 //Routes Employee
 Route::post('/api/employee/add', [EmployeeController::class, 'store']);
 Route::get('/api/employee', [EmployeeController::class, 'index']);
+Route::put('/api/employee/update', [EmployeeController::class, 'update']);
+Route::post('/api/employee/delete', [EmployeeController::class, 'destroy']);
 

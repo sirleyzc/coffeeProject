@@ -26,4 +26,18 @@ class CustomerController extends Controller
         
         $customer->save();
     }
+
+    public function update(Request $request){
+        $customer = Customer::findOrFail($request->id);
+        $customer->name = $request->name;
+        $customer->address = $request->addr;
+        $customer->phone = $request->phone;
+
+        $customer->save();
+    }
+
+    public function destroy(Request $request){
+        $customer = Customer::findOrFail($request->id);
+        $customer->delete();
+    }
 }

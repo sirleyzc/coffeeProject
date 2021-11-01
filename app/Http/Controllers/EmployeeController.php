@@ -26,4 +26,28 @@ class EmployeeController extends Controller
 
         $employee->save();
     }
+
+    public function update(Request $request){
+        $employee = Employee::findOrFail($request->id);
+        $employee->idEmployee = $request->idEmp;
+        $employee->namEmployee = $request->name;
+        $employee->phone = $request->phone;
+        $employee->address = $request->addr;
+        $employee->datAdmission = $request->date;
+
+        $employee->save();
+    }
+
+    public function destroy(Request $request){
+        $employee = Employee::findOrFail($request->id);
+        $employee->delete();
+    }
+
+    public function getEmployee(){
+        $employee = Employee::select('idEmployee','namEmployee')
+        ->get();
+        return [
+            'emp'=>$employee
+        ];
+    }
 }
